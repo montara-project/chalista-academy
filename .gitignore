@@ -30,3 +30,7 @@ pnpm-debug.log*
 # Misc
 *.tsbuildinfo
 coverage/
+
+# AI
+.zcode/
+.zcodes/
