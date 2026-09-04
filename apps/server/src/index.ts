@@ -1,5 +1,7 @@
-import app from './app.ts';
-import type { Bindings } from './env.ts';
+import { createApp } from "./app.ts";
+import type { Bindings } from "./env.ts";
+
+const app = createApp();
 
 /**
  * Entry Cloudflare Workers — Hono instance langsung memenuhi kontrak
