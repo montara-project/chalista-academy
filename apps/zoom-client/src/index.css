@@ -1,0 +1,8 @@
+@import 'tailwindcss';
+
+/* Sumber class Tailwind di luar direktori app ini (monorepo). */
+@source "../../../../packages/ui/src";
+
+body {
+  @apply bg-zinc-50 text-zinc-900 antialiased;
+}

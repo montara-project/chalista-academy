@@ -1,0 +1,7 @@
+packages:
+  - 'apps/*'
+  - 'packages/*'
+allowBuilds:
+  '@zoom/meetingsdk': true
+  esbuild: true
+  workerd: true

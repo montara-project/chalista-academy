@@ -1,0 +1,9 @@
+{
+  "name": "@chalista/config",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Preset TypeScript bersama untuk monorepo Chalista Academy",
+  "files": [
+    "*.json"
+  ]
+}

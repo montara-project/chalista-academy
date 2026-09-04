@@ -1,0 +1,10 @@
+# Salin file ini menjadi .dev.vars lalu isi nilainya (dipakai `wrangler dev`).
+# Di produksi, set via: wrangler secret put <NAMA>
+
+JWT_SECRET=dev-secret-ganti-di-produksi
+CORS_ORIGIN=http://localhost:3000,http://localhost:5173
+
+# Dari Zoom App Marketplace (Meeting SDK credentials):
+# https://marketplace.zoom.us/develop/create
+ZOOM_SDK_KEY=
+ZOOM_SDK_SECRET=

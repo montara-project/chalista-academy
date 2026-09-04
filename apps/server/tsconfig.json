@@ -1,0 +1,4 @@
+{
+  "extends": "@chalista/config/tsconfig.server.json",
+  "include": ["src"]
+}

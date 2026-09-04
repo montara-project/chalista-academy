@@ -1,0 +1,20 @@
+{
+  "name": "@chalista/types",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Skema zod & tipe domain bersama Chalista Academy",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "zod": "^4.1.0"
+  },
+  "devDependencies": {
+    "@chalista/config": "workspace:*",
+    "typescript": "^5.9.2"
+  }
+}
