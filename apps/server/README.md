@@ -1,21 +1,17 @@
 # @chalista/server — API Chalista Academy
 
-API hono yang menargetkan **Cloudflare Workers**, dengan data in-memory untuk MVP (lihat `docs/PRD.md` §4.2).
+API hono yang berjalan sebagai server **Node.js** biasa (via `@hono/node-server`), dengan data in-memory untuk MVP (lihat `docs/PRD.md` §4.2).
 
 ## Menjalankan
 
 ```bash
-# Cloudflare Workers lokal (direkomendasikan)
 pnpm --filter @chalista/server dev          # http://localhost:8787
-
-# Alternatif tanpa wrangler (Node)
-pnpm --filter @chalista/server dev:node
 ```
 
 Setup kredensial dev:
 
 ```bash
-cp .dev.vars.example .dev.vars   # lalu isi ZOOM_SDK_KEY / ZOOM_SDK_SECRET
+cp .env.example .env   # lalu isi ZOOM_SDK_KEY / ZOOM_SDK_SECRET bila perlu
 ```
 
 ## Endpoint
@@ -36,8 +32,10 @@ Akun seed: `admin@chalista.id / admin12345` dan `siswa@chalista.id / siswa12345`
 
 ## Deploy
 
+Jalankan sebagai proses Node biasa di server/VM/container pilihan:
+
 ```bash
-wrangler login
-pnpm --filter @chalista/server deploy
-wrangler secret put JWT_SECRET           # dan ZOOM_SDK_KEY / ZOOM_SDK_SECRET
+pnpm --filter @chalista/server start
 ```
+
+Set env var produksi (`JWT_SECRET`, `CORS_ORIGIN`, `ZOOM_SDK_KEY`, `ZOOM_SDK_SECRET`, `PORT`) lewat mekanisme hosting yang dipakai.

@@ -165,7 +165,7 @@ Alur data: `learn`/`zoom-client` → `@chalista/api-client` → `server` (hono) 
 | -------- | --------------------------------------------------------------- |
 | Monorepo | pnpm workspaces                                                 |
 | Web app  | vinext (Cloudflare), React 19, Tailwind CSS v4, shadcn/ui       |
-| API      | hono, zod, `@hono/zod-validator`, wrangler (Cloudflare Workers) |
+| API      | hono, zod, `@hono/zod-validator`, `@hono/node-server` (Node.js) |
 | Zoom     | @zoom/meetingsdk (Web Meeting SDK v3)                           |
 | Kualitas | oxlint, oxfmt, TypeScript strict                                |
 

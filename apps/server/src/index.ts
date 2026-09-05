@@ -1,10 +1,16 @@
+import { serve } from "@hono/node-server";
 import { createApp } from "./app.ts";
-import type { Bindings } from "./env.ts";
-
-const app = createApp();
+import { loadBindings } from "./env.ts";
 
 /**
- * Entry Cloudflare Workers — Hono instance langsung memenuhi kontrak
- * ExportedHandler karena punya method `fetch(request, env, ctx)`.
+ * Entry point Node — jalankan API langsung dengan `node`/`tsx`, tanpa Cloudflare Workers.
  */
-export default app as ExportedHandler<Bindings>;
+const app = createApp();
+const port = Number(process.env.PORT ?? 8787);
+
+serve(
+  { fetch: (request) => app.fetch(request, loadBindings(), undefined), port },
+  (info) => {
+    console.log(`chalista-api berjalan di http://localhost:${info.port}`);
+  },
+);

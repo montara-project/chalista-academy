@@ -9,13 +9,12 @@ build/
 .next/
 .vinext/
 .wrangler/
+.old
 
 # Environment
 .env
 .env.local
 .env.*.local
-.dev.vars
-.production.vars
 
 # Editor & OS
 .DS_Store
