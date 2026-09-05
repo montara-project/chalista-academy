@@ -6,7 +6,7 @@ export type UserRole = z.infer<typeof userRoleSchema>
 export const UserFormSchema = z.object({
   id: z.string(),
   first_name: z.string().min(1),
-  last_name: z.string().nullable().optional(),
+  last_name: z.string(),
   email: z.email(),
   role_id: z.string(),
 })

@@ -26,8 +26,8 @@ export class User extends Base {
   first_name: string
 
   @Index()
-  @Column({ nullable: true })
-  last_name!: string | null
+  @Column()
+  last_name: string
 
   @Index()
   @Column()
