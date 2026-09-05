@@ -1,5 +1,6 @@
-import type { ComponentProps } from 'react';
-import { cn } from '../cn.ts';
+import type { ComponentProps } from 'react'
+
+import { cn } from '../cn.ts'
 
 export function Input({ className, type, ...props }: ComponentProps<'input'>) {
   return (
@@ -10,9 +11,9 @@ export function Input({ className, type, ...props }: ComponentProps<'input'>) {
         'placeholder:text-zinc-400',
         'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600',
         'disabled:cursor-not-allowed disabled:opacity-50',
-        className,
+        className
       )}
       {...props}
     />
-  );
+  )
 }

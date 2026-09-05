@@ -1,7 +1,5 @@
-import { useCallback, useEffect, useState, type FormEvent } from 'react';
-import { ZoomMtg } from '@zoom/meetingsdk';
-import type { ZoomSignatureResponse } from '@chalista/types';
-import { createApiClient } from '@chalista/api-client';
+import { createApiClient } from '@chalista/api-client'
+import type { ZoomSignatureResponse } from '@chalista/types'
 import {
   Badge,
   Button,
@@ -11,96 +9,98 @@ import {
   CardHeader,
   CardTitle,
   Input,
-} from '@chalista/ui';
+} from '@chalista/ui'
+import { ZoomMtg } from '@zoom/meetingsdk'
+import { useCallback, useEffect, useState, type FormEvent } from 'react'
 
-type MeetingView = 'client' | 'component';
+type MeetingView = 'client' | 'component'
 
-const TOKEN_KEY = 'chalista_token';
+const TOKEN_KEY = 'chalista_token'
 
 function api() {
   return createApiClient({
     baseUrl: import.meta.env.VITE_API_URL || 'http://127.0.0.1:8787',
     getToken: () => localStorage.getItem(TOKEN_KEY),
-  });
+  })
 }
 
 function initialParam(name: string): string {
-  return new URLSearchParams(window.location.search).get(name) ?? '';
+  return new URLSearchParams(window.location.search).get(name) ?? ''
 }
 
 export function App() {
-  const [meetingNumber, setMeetingNumber] = useState(initialParam('meetingNumber'));
-  const [passcode, setPasscode] = useState(initialParam('passcode'));
-  const [userName, setUserName] = useState(initialParam('name') || 'Sandbox User');
-  const [role, setRole] = useState<0 | 1>(0);
-  const [view, setView] = useState<MeetingView>('client');
+  const [meetingNumber, setMeetingNumber] = useState(initialParam('meetingNumber'))
+  const [passcode, setPasscode] = useState(initialParam('passcode'))
+  const [userName, setUserName] = useState(initialParam('name') || 'Sandbox User')
+  const [role, setRole] = useState<0 | 1>(0)
+  const [view, setView] = useState<MeetingView>('client')
 
-  const [email, setEmail] = useState('siswa@chalista.id');
-  const [password, setPassword] = useState('');
-  const [authed, setAuthed] = useState(false);
+  const [email, setEmail] = useState('siswa@chalista.id')
+  const [password, setPassword] = useState('')
+  const [authed, setAuthed] = useState(false)
 
-  const [joining, setJoining] = useState(false);
-  const [signature, setSignature] = useState<ZoomSignatureResponse | null>(null);
-  const [logs, setLogs] = useState<string[]>([]);
+  const [joining, setJoining] = useState(false)
+  const [signature, setSignature] = useState<ZoomSignatureResponse | null>(null)
+  const [logs, setLogs] = useState<string[]>([])
 
   const log = useCallback((message: string) => {
-    const timestamp = new Date().toLocaleTimeString('id-ID');
-    setLogs((previous) => [...previous, `[${timestamp}] ${message}`]);
-  }, []);
+    const timestamp = new Date().toLocaleTimeString('id-ID')
+    setLogs((previous) => [...previous, `[${timestamp}] ${message}`])
+  }, [])
 
   useEffect(() => {
-    setAuthed(Boolean(localStorage.getItem(TOKEN_KEY)));
-  }, []);
+    setAuthed(Boolean(localStorage.getItem(TOKEN_KEY)))
+  }, [])
 
   async function handleLogin(event: FormEvent) {
-    event.preventDefault();
+    event.preventDefault()
     try {
-      const response = await api().auth.login({ email, password });
-      localStorage.setItem(TOKEN_KEY, response.token);
-      setAuthed(true);
-      log(`Login berhasil sebagai ${response.user.name}`);
+      const response = await api().auth.login({ email, password })
+      localStorage.setItem(TOKEN_KEY, response.token)
+      setAuthed(true)
+      log(`Login berhasil sebagai ${response.user.name}`)
     } catch {
-      log('Login gagal — periksa kredensial / server API.');
+      log('Login gagal — periksa kredensial / server API.')
     }
   }
 
   async function handleJoin() {
-    setJoining(true);
-    setSignature(null);
+    setJoining(true)
+    setSignature(null)
     try {
-      log(`Meminta signature untuk meeting ${meetingNumber} (role ${role})…`);
+      log(`Meminta signature untuk meeting ${meetingNumber} (role ${role})…`)
       const response = await api().zoom.signature({
         meetingNumber: meetingNumber.replaceAll(/\s+/g, ''),
         role,
         expirationSeconds: 3600,
-      });
-      setSignature(response);
-      log('Signature diterima dari server. Menyiapkan SDK…');
-      joinMeeting(response);
+      })
+      setSignature(response)
+      log('Signature diterima dari server. Menyiapkan SDK…')
+      joinMeeting(response)
     } catch (error) {
       const message =
         (error as { status?: number }).status === 503
           ? 'Kredensial Zoom belum disetel di server (ZOOM_SDK_KEY / ZOOM_SDK_SECRET).'
           : (error as { status?: number }).status === 401
             ? 'Sesi tidak valid — login dulu di bagian autentikasi.'
-            : 'Gagal meminta signature dari server API.';
-      log(message);
+            : 'Gagal meminta signature dari server API.'
+      log(message)
     } finally {
-      setJoining(false);
+      setJoining(false)
     }
   }
 
   function joinMeeting(data: ZoomSignatureResponse) {
-    const meetingContainer = document.getElementById('meetingSDKElement');
+    const meetingContainer = document.getElementById('meetingSDKElement')
 
-    ZoomMtg.preLoadWasm();
-    ZoomMtg.prepareWebSDK();
+    ZoomMtg.preLoadWasm()
+    ZoomMtg.prepareWebSDK()
 
     ZoomMtg.init({
       leaveUrl: window.location.href,
       zoomRoot: view === 'component' ? (meetingContainer ?? undefined) : undefined,
       success: () => {
-        log(`SDK siap. Bergabung ke ${data.meetingNumber} (view: ${view})…`);
+        log(`SDK siap. Bergabung ke ${data.meetingNumber} (view: ${view})…`)
         ZoomMtg.joinMeeting({
           signature: data.signature,
           sdkKey: data.sdkKey,
@@ -110,14 +110,14 @@ export function App() {
           role,
           success: () => log('joinMeeting sukses — meeting terbuka.'),
           error: (joinError: unknown) => log(`joinMeeting error: ${JSON.stringify(joinError)}`),
-        });
+        })
       },
       error: (initError: unknown) => log(`init error: ${JSON.stringify(initError)}`),
-    });
+    })
   }
 
   const inputClass =
-    'flex h-9 w-full rounded-md border border-zinc-300 bg-white px-3 py-1 text-sm shadow-xs outline-none focus-visible:border-indigo-600 focus-visible:ring-2 focus-visible:ring-indigo-100';
+    'flex h-9 w-full rounded-md border border-zinc-300 bg-white px-3 py-1 text-sm shadow-xs outline-none focus-visible:border-indigo-600 focus-visible:ring-2 focus-visible:ring-indigo-100'
 
   return (
     <div className="mx-auto flex min-h-dvh w-full max-w-5xl flex-col gap-6 px-4 py-10">
@@ -245,5 +245,5 @@ export function App() {
       {/* Client View merender fullscreen; Component View merender di elemen ini. */}
       <div id="meetingSDKElement" className={view === 'component' ? 'min-h-96' : 'hidden'} />
     </div>
-  );
+  )
 }
