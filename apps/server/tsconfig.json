@@ -13,8 +13,11 @@
     },
     "rootDir": "./src",
     "outDir": "./dist",
+    "noEmit": false,
 
     "allowJs": true,
+    "allowImportingTsExtensions": true,
+    "rewriteRelativeImportExtensions": true,
     "esModuleInterop": true,
     "verbatimModuleSyntax": true,
     "forceConsistentCasingInFileNames": true,
