@@ -1,0 +1,7 @@
+{
+  "extends": "@chalista/config/tsconfig.server.json",
+  "compilerOptions": {
+    "noEmit": true
+  },
+  "include": ["./**/*"]
+}
