@@ -1,5 +1,5 @@
 {
-  "name": "@chalista/zoom-client",
+  "name": "@chalista/zoom",
   "version": "0.1.0",
   "private": true,
   "description": "Sandbox Zoom Meeting SDK untuk Chalista Academy",

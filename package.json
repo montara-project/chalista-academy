@@ -5,7 +5,13 @@
   "description": "Chalista Academy — platform kursus online dengan kelas live via Zoom",
   "scripts": {
     "dev": "pnpm -r --parallel dev",
+    "dev:learn": "pnpm --filter @chalista/learn dev",
+    "dev:server": "pnpm --filter @chalista/server dev",
+    "dev:zoom": "pnpm --filter @chalista/zoom dev",
     "build": "pnpm -r build",
+    "build:learn": "pnpm --filter @chalista/learn build",
+    "build:server": "pnpm --filter @chalista/server build",
+    "build:zoom": "pnpm --filter @chalista/zoom build",
     "typecheck": "pnpm -r typecheck",
     "lint": "oxlint .",
     "lint:fix": "oxlint . --fix",
