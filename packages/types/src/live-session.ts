@@ -13,7 +13,7 @@ export const LiveSessionFormSchema = z.object({
   passcode: z.string().min(1),
   status: liveSessionStatusSchema,
 })
-export type LiveSession = z.infer<typeof LiveSessionFormSchema>
+export type LiveSessionFormDto = z.infer<typeof LiveSessionFormSchema>
 
 export const CreateLiveSessionRequestSchema = LiveSessionFormSchema.omit({ id: true, status: true })
 export type CreateLiveSessionRequestDto = z.infer<typeof CreateLiveSessionRequestSchema>

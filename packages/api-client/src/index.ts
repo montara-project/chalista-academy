@@ -1,18 +1,18 @@
 import type {
-  Course,
-  CourseSummary,
-  CreateCourseRequest,
-  CreateEnrollmentRequest,
-  CreateLiveSessionRequest,
-  Enrollment,
-  LiveSession,
-  LoginRequest,
-  LoginResponse,
-  UpdateCourseRequest,
-  UpdateLiveSessionRequest,
-  User,
-  ZoomSignatureRequest,
-  ZoomSignatureResponse,
+  CourseDto,
+  CourseSummaryDto,
+  CreateCourseRequestDto,
+  CreateEnrollmentRequestDto,
+  CreateLiveSessionRequestDto,
+  EnrollmentFormDto,
+  LiveSessionFormDto,
+  SignInRequestDto,
+  SignInResponseDto,
+  UpdateCourseRequestDto,
+  UpdateLiveSessionRequestDto,
+  UserFormDto,
+  ZoomSignatureRequestDto,
+  ZoomSignatureResponseDto,
 } from '@chalista/types'
 
 export class ApiError extends Error {
@@ -37,35 +37,35 @@ export interface ApiClientOptions {
 export interface ApiClient {
   health(): Promise<{ status: string }>
   auth: {
-    login(body: LoginRequest): Promise<LoginResponse>
-    me(): Promise<User>
+    login(body: SignInRequestDto): Promise<SignInResponseDto>
+    me(): Promise<UserFormDto>
   }
   courses: {
-    list(): Promise<CourseSummary[]>
-    bySlug(slug: string): Promise<Course>
-    create(body: CreateCourseRequest): Promise<Course>
-    update(slug: string, body: UpdateCourseRequest): Promise<Course>
+    list(): Promise<CourseSummaryDto[]>
+    bySlug(slug: string): Promise<CourseDto>
+    create(body: CreateCourseRequestDto): Promise<CourseDto>
+    update(slug: string, body: UpdateCourseRequestDto): Promise<CourseDto>
     remove(slug: string): Promise<void>
   }
   enrollments: {
-    list(): Promise<Enrollment[]>
-    create(body: CreateEnrollmentRequest): Promise<Enrollment>
+    list(): Promise<EnrollmentFormDto[]>
+    create(body: CreateEnrollmentRequestDto): Promise<EnrollmentFormDto>
   }
   liveSessions: {
-    list(): Promise<LiveSession[]>
-    byCourse(courseId: string): Promise<LiveSession[]>
-    create(body: CreateLiveSessionRequest): Promise<LiveSession>
-    update(id: string, body: UpdateLiveSessionRequest): Promise<LiveSession>
+    list(): Promise<LiveSessionFormDto[]>
+    byCourse(courseId: string): Promise<LiveSessionFormDto[]>
+    create(body: CreateLiveSessionRequestDto): Promise<LiveSessionFormDto>
+    update(id: string, body: UpdateLiveSessionRequestDto): Promise<LiveSessionFormDto>
     remove(id: string): Promise<void>
   }
   zoom: {
-    signature(body: ZoomSignatureRequest): Promise<ZoomSignatureResponse>
+    signature(body: ZoomSignatureRequestDto): Promise<ZoomSignatureResponseDto>
   }
 }
 
 export function createApiClient(options: ApiClientOptions): ApiClient {
   const baseUrl = options.baseUrl.replace(/\/+$/, '')
-  const doFetch = options.fetchImpl ?? fetch
+  const doFetch = options.fetchImpl ?? globalThis.fetch
   const getToken = options.getToken
 
   async function request<T>(path: string, init?: RequestInit): Promise<T> {

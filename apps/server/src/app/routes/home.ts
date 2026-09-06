@@ -14,4 +14,8 @@ route.get('/health', (c) => {
   return c.json(response)
 })
 
+route.get("/debug-sentry", () => {
+  throw new Error("My first Sentry error!");
+});
+
 export { route as HomeRoute }
