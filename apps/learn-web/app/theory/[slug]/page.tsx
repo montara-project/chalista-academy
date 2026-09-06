@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
+
 import { notFound } from 'next/navigation'
 
-import { TopicDetail } from '@/components/topic-detail'
-import { getTheoryTopic, theoryTopics } from '@/lib/topics'
+import { TopicDetail } from '@/components/block/common/topic-detail'
+import { getTheoryTopic, theoryTopics } from '@/data/topics'
 
 export function generateStaticParams() {
   return theoryTopics.map((topic) => ({ slug: topic.slug }))
@@ -30,11 +31,6 @@ export default async function TheoryTopicPage({ params }: { params: Promise<{ sl
   }
 
   return (
-    <TopicDetail
-      topic={topic}
-      siblings={theoryTopics}
-      basePath="/theory"
-      sectionLabel="Theory"
-    />
+    <TopicDetail topic={topic} siblings={theoryTopics} basePath="/theory" sectionLabel="Theory" />
   )
 }

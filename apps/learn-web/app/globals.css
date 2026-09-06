@@ -4,25 +4,24 @@
 @theme {
   --font-display: 'Nunito', ui-sans-serif, system-ui, sans-serif;
   --font-sans:
-    'DM Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    'Segoe UI', sans-serif;
+    'DM Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
-  --color-primary: #4f46e5;
+  --color-primary: #7a6248;
   --color-primary-foreground: #ffffff;
-  --color-secondary: #818cf8;
-  --color-secondary-foreground: #0f172a;
-  --color-accent: #ea580c;
-  --color-accent-foreground: #1c1917;
-  --color-background: #eef2ff;
-  --color-foreground: #1e1b4b;
+  --color-secondary: #c9b59c;
+  --color-secondary-foreground: #3b322a;
+  --color-accent: #a05632;
+  --color-accent-foreground: #ffffff;
+  --color-background: #f9f8f6;
+  --color-foreground: #3b322a;
   --color-card: #ffffff;
-  --color-card-foreground: #1e1b4b;
-  --color-muted: #ebeef8;
-  --color-muted-foreground: #475569;
-  --color-border: #c7d2fe;
+  --color-card-foreground: #3b322a;
+  --color-muted: #efe9e3;
+  --color-muted-foreground: #6e6257;
+  --color-border: #d9cfc7;
   --color-destructive: #dc2626;
   --color-destructive-foreground: #ffffff;
-  --color-ring: #4f46e5;
+  --color-ring: #7a6248;
 }
 
 :root {
@@ -77,8 +76,8 @@ button:not(:disabled),
   border-radius: 1.5rem;
   background: var(--color-card);
   box-shadow:
-    0 16px 32px -16px rgb(30 27 75 / 0.18),
-    0 2px 8px rgb(30 27 75 / 0.06),
+    0 16px 32px -16px rgb(59 50 42 / 0.18),
+    0 2px 8px rgb(59 50 42 / 0.06),
     inset 0 2px 3px rgb(255 255 255 / 0.9);
 }
 
@@ -87,7 +86,7 @@ button:not(:disabled),
   border-radius: 1.25rem;
   background: var(--color-background);
   box-shadow:
-    0 8px 20px -12px rgb(30 27 75 / 0.16),
+    0 8px 20px -12px rgb(59 50 42 / 0.16),
     inset 0 2px 3px rgb(255 255 255 / 0.9);
 }
 
@@ -96,27 +95,27 @@ button:not(:disabled),
   border-radius: 9999px;
   background: var(--color-card);
   box-shadow:
-    0 6px 14px -8px rgb(30 27 75 / 0.2),
+    0 6px 14px -8px rgb(59 50 42 / 0.2),
     inset 0 2px 2px rgb(255 255 255 / 0.9);
 }
 
 .clay-btn-primary {
   box-shadow:
-    0 12px 24px -8px rgb(79 70 229 / 0.55),
+    0 12px 24px -8px rgb(122 98 72 / 0.5),
     inset 0 -3px 0 rgb(0 0 0 / 0.22),
     inset 0 2px 0 rgb(255 255 255 / 0.28);
 }
 
 .clay-btn-white {
   box-shadow:
-    0 12px 24px -10px rgb(30 27 75 / 0.28),
-    inset 0 -3px 0 rgb(30 27 75 / 0.12),
+    0 12px 24px -10px rgb(59 50 42 / 0.28),
+    inset 0 -3px 0 rgb(59 50 42 / 0.12),
     inset 0 2px 0 rgb(255 255 255 / 0.9);
 }
 
 .clay-btn-accent {
   box-shadow:
-    0 12px 24px -8px rgb(234 88 12 / 0.5),
+    0 12px 24px -8px rgb(160 86 50 / 0.5),
     inset 0 -3px 0 rgb(0 0 0 / 0.22),
     inset 0 2px 0 rgb(255 255 255 / 0.35);
 }

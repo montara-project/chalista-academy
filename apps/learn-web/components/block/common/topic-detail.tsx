@@ -1,7 +1,8 @@
 import Link from 'next/link'
 
-import { Icon } from '@/components/icons'
-import type { Topic } from '@/lib/topics'
+import type { Topic } from '@/data/topics'
+
+import { Icon } from '@/components/block/common/icons'
 
 export function TopicDetail({
   topic,
@@ -60,8 +61,8 @@ export function TopicDetail({
           <Icon name="hammer" className="h-5 w-5" />
         </span>
         <p className="pt-1.5 text-sm leading-6 text-muted-foreground">
-          Materi lengkap untuk topik ini sedang disusun dan akan segera tersedia. Sementara itu, kamu bisa
-          menjelajahi topik lainnya di bawah.
+          Materi lengkap untuk topik ini sedang disusun dan akan segera tersedia. Sementara itu,
+          kamu bisa menjelajahi topik lainnya di bawah.
         </p>
       </div>
 

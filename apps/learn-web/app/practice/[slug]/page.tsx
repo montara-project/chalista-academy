@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
+
 import { notFound } from 'next/navigation'
 
-import { TopicDetail } from '@/components/topic-detail'
-import { getPracticeTopic, practiceTopics } from '@/lib/topics'
+import { TopicDetail } from '@/components/block/common/topic-detail'
+import { getPracticeTopic, practiceTopics } from '@/data/topics'
 
 export function generateStaticParams() {
   return practiceTopics.map((topic) => ({ slug: topic.slug }))

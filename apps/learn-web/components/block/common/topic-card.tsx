@@ -1,7 +1,8 @@
 import Link from 'next/link'
 
-import { Icon } from '@/components/icons'
-import type { Topic } from '@/lib/topics'
+import type { Topic } from '@/data/topics'
+
+import { Icon } from '@/components/block/common/icons'
 
 export function TopicCard({ topic, href }: { topic: Topic; href: string }) {
   return (

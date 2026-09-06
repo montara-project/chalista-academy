@@ -4,8 +4,8 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
-import { Icon } from '@/components/icons'
-import { practiceTopics, theoryTopics } from '@/lib/topics'
+import { Icon } from '@/components/block/common/icons'
+import { practiceTopics, theoryTopics } from '@/data/topics'
 
 const navGroups = [
   { label: 'Theory', href: '/theory', topics: theoryTopics },
@@ -26,7 +26,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b-2 border-border bg-background/90 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
         <Link href="/" className="flex items-center gap-2.5" onClick={closeMobileMenu}>
-          <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-violet-500 text-primary-foreground shadow-[0_8px_16px_-6px_rgb(79_70_229/0.6),inset_0_2px_0_rgb(255_255_255/0.3)]">
+          <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-[#5f4c39] to-[#96784f] text-primary-foreground shadow-[0_8px_16px_-6px_rgb(95_76_57/0.55),inset_0_2px_0_rgb(255_255_255/0.3)]">
             <Icon name="graduation-cap" className="h-5 w-5" />
           </span>
           <span className="font-display text-lg font-extrabold tracking-tight text-foreground">
@@ -84,7 +84,9 @@ export function SiteHeader() {
                           <span className="block font-display text-sm font-extrabold text-card-foreground">
                             {topic.title}
                           </span>
-                          <span className="block text-xs leading-5 text-muted-foreground">{topic.short}</span>
+                          <span className="block text-xs leading-5 text-muted-foreground">
+                            {topic.short}
+                          </span>
                         </span>
                       </Link>
                     ))}
@@ -118,7 +120,10 @@ export function SiteHeader() {
 
       {mobileOpen && (
         <div className="border-t-2 border-border bg-background">
-          <nav className="mx-auto max-w-6xl space-y-1 px-4 py-4 sm:px-6" aria-label="Navigasi mobile">
+          <nav
+            className="mx-auto max-w-6xl space-y-1 px-4 py-4 sm:px-6"
+            aria-label="Navigasi mobile"
+          >
             <Link
               href="/"
               onClick={closeMobileMenu}

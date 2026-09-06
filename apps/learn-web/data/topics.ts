@@ -1,4 +1,4 @@
-import type { IconName } from '@/components/icons'
+import type { IconName } from '@/components/block/common/icons'
 
 export type Topic = {
   slug: string
