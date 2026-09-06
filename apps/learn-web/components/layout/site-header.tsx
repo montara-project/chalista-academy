@@ -100,7 +100,7 @@ export function SiteHeader() {
         <div className="hidden md:block">
           <Link
             href="/theory"
-            className="clay-btn-primary clay-press inline-flex items-center gap-2 rounded-2xl bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground"
+            className="clay-btn-primary clay-press inline-flex items-center gap-2 rounded-2xl bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground!"
           >
             <Icon name="sparkles" className="h-4 w-4" />
             Mulai Belajar

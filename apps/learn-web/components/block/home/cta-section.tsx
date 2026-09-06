@@ -34,7 +34,7 @@ export default function CtaSection() {
             </Link>
             <Link
               href="/practice"
-              className="clay-press inline-flex items-center gap-2 rounded-2xl border-2 border-white/50 px-6 py-3.5 text-sm font-bold text-white transition-colors duration-200 hover:bg-white/10"
+              className="clay-press inline-flex items-center gap-2 rounded-2xl border-2 border-white/50 px-6 py-3.5 text-sm font-bold text-white! transition-colors duration-200 hover:bg-white/10"
             >
               <Icon name="target" className="h-4 w-4" />
               Lihat Latihan
