@@ -121,6 +121,17 @@ button:not(:disabled),
 }
 
 /*
+ * Brand chrome: the signature warm clay gradient used for the logo mark.
+ * Centralized so header and footer always share the same surface.
+ */
+.clay-brandmark {
+  background: linear-gradient(135deg, #5f4c39 0%, #96784f 100%);
+  box-shadow:
+    0 8px 16px -6px rgb(95 76 57 / 0.55),
+    inset 0 2px 0 rgb(255 255 255 / 0.3);
+}
+
+/*
  * Soft press: single shared timing for lift on hover and sink on press.
  */
 .clay-press {

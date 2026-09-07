@@ -33,13 +33,13 @@ export default function HeroLessonCard() {
 
         <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
           <li className="flex items-center gap-2">
-            <Icon name="check-circle" className="h-4 w-4 shrink-0 text-emerald-500" />
+            <Icon name="check-circle" className="h-4 w-4 shrink-0 text-accent" />
             <span>
               She <b className="text-card-foreground">works</b> every day.
             </span>
           </li>
           <li className="flex items-center gap-2">
-            <Icon name="check-circle" className="h-4 w-4 shrink-0 text-emerald-500" />
+            <Icon name="check-circle" className="h-4 w-4 shrink-0 text-accent" />
             <span>
               They <b className="text-card-foreground">study</b> English.
             </span>

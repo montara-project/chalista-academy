@@ -20,7 +20,7 @@ export default function CtaSection() {
           <h2 className="mx-auto max-w-2xl font-display text-[32px] font-extrabold leading-[38px] tracking-tight text-white sm:text-4xl">
             Siap meningkatkan kemampuan bahasa Inggrismu?
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-lg leading-8 text-indigo-100">
+          <p className="mx-auto mt-4 max-w-xl text-lg leading-8 text-primary-foreground/85">
             Mulai dari satu topik hari ini. Sedikit demi sedikit, rutin lebih baik daripada sekali
             duduk menghafal semuanya.
           </p>

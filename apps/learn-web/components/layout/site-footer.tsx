@@ -9,7 +9,7 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-[1.5fr_1fr_1fr]">
         <div>
           <Link href="/" className="inline-flex items-center gap-2.5">
-            <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-[#5f4c39] to-[#96784f] text-primary-foreground shadow-[0_8px_16px_-6px_rgb(95_76_57/0.55),inset_0_2px_0_rgb(255_255_255/0.3)]">
+            <span className="clay-brandmark flex h-10 w-10 items-center justify-center rounded-2xl text-primary-foreground">
               <Icon name="graduation-cap" className="h-5 w-5" />
             </span>
             <span className="font-display text-lg font-extrabold tracking-tight text-foreground">

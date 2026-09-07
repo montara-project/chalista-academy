@@ -1,10 +1,10 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
+import Link from "next/link";
 
-import { Icon } from '../common/icons'
-import HeroLessonCard from './hero-lession'
-import { heroChips } from './mock-data'
+import { Icon } from "../common/icons";
+import HeroLessonCard from "./hero-lession";
+import { heroChips } from "./mock-data";
 
 export default function HeroSection() {
   return (
@@ -26,7 +26,7 @@ export default function HeroSection() {
           </span>
 
           <h1 className="mt-5 font-display text-[44px] font-extrabold leading-[52px] tracking-tight text-foreground sm:text-5xl sm:leading-[52px]">
-            Kuasai bahasa Inggris, mulai dari{' '}
+            Kuasai bahasa Inggris, mulai dari{" "}
             <span className="relative inline-block text-accent">
               teori
               <svg
@@ -43,14 +43,14 @@ export default function HeroSection() {
                   strokeLinecap="round"
                 />
               </svg>
-            </span>{' '}
+            </span>{" "}
             sampai praktik.
           </h1>
 
           <p className="mt-5 max-w-xl text-lg leading-8 text-muted-foreground">
-            Chalista Academy merangkum materi grammar — dari tenses, modal verbs, hingga gerund —
-            dalam bahasa yang sederhana, lengkap dengan contoh dan latihan soal untuk menguji
-            pemahamanmu.
+            Chalista Academy merangkum materi grammar — dari tenses, modal
+            verbs, hingga gerund — dalam bahasa yang sederhana, lengkap dengan
+            contoh dan latihan soal untuk menguji pemahamanmu.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -86,5 +86,5 @@ export default function HeroSection() {
         <HeroLessonCard />
       </div>
     </section>
-  )
+  );
 }
